@@ -10,12 +10,14 @@
                 <label>
                     Név:<br />
                     <input type="text" name="nev">
+                    <div style="color: red;"><%= errors.nev %></div>
                 </label>
             </p>
             <p>
                 <label>
                     Életkor:<br />
                     <input type="number" name="eletkor">
+                    <div style="color: red;"><%= errors.eletkor %></div>
                 </label>
             </p>
             <p>
@@ -28,6 +30,11 @@
             Megadott adatok: <br>
             Név: <%= nev %> <br>
             Életkor: <%= eletkor %>
+        </p>
+        <p>
+            Megadott adatok (Formázára alkalmas<!-- pl: <Strong>Félkövér szöveg</Strong>-->): <br>
+            Név: <%- nev %> <br>
+            Életkor: <%- eletkor %>
         </p>
     </body>
 </html>

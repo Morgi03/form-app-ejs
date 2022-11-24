@@ -10,6 +10,14 @@ export class AppController {
     @Query('nev') nev: string,
     @Query('eletkor') eletkor: number,
   ): object {
-    return { nev: nev, eletkor: eletkor };
+    const errors: any = {};
+    if (eletkor < 18) {
+      errors.eletkor = 'Nem múltál el 18!';
+    }
+    if (nev == '') {
+      errors.nev = 'A név mezőt is töltsd ki!';
+    }
+    // return { nev: nev, eletkor: eletkor, errors: errors };
+    return { nev, eletkor, errors, negyedik: 12 };
   }
 }
