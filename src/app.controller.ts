@@ -1,4 +1,4 @@
-import { Get, Controller, Render } from '@nestjs/common';
+import { Get, Controller, Render, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -6,7 +6,10 @@ export class AppController {
   constructor(private readonly appservice: AppService) {}
   @Get()
   @Render('form')
-  getHello(): object {
-    return {};
+  getHello(
+    @Query('nev') nev: string,
+    @Query('eletkor') eletkor: number,
+  ): object {
+    return { nev: nev, eletkor: eletkor };
   }
 }
